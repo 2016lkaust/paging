@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import bean.Page;
+import bean.PageObject;
 import dao.UserDao;
 
 public class UserService {
-	public List<Map<String, Object>> queryUsers(Page page) {
+	public List<Map<String, Object>> queryUsers(PageObject page) {
 		List<Map<String, Object>> list = new ArrayList<>();
 		UserDao userDao = new UserDao();
 		userDao.getConn();

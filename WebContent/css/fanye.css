@@ -1,0 +1,65 @@
+.fanye .currentpage {
+    color: white;
+    border: 1px solid #206bce;
+    background: #206bce;
+}
+
+.fanye a {
+    font-family: "宋体";
+    font-size: 14px;
+    color: #333;
+    display: block;
+    float: left;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    line-height: 25px;
+    margin: 0px 2px 0px 2px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.fanye a img {
+    width: 100%;
+}
+.fanye span {
+    font-size: 12px;
+    color: #333;
+    display: block;
+    float: left;
+    line-height: 25px;
+}
+
+.fanye .nothing {
+    margin: 0px 10px 0px 10px;
+}
+/*分页*/
+.pagination-list {
+  height: 40px;
+  line-height: 40px;
+}
+.pagination-list td {
+  border-bottom: none;
+}
+.pagination-list .pagination-count {
+  float: left;
+  margin-left: 15px;
+  height: 40px;
+  line-height: 40px;
+}
+.pagination-list .pagination-count span {
+  font-size: 12px;
+}
+.pagination-list .pagination-count .perpage{
+  border: 1px solid #cdcdcd;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.pagination-list .fanye {
+  float: right;
+  margin-right: 20px;
+  margin-top: 8px;
+}
