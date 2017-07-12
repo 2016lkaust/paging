@@ -83,40 +83,6 @@ public class UserDao {
 	public void update() {
 	}
 
-	// @Test
-	// public void test() {
-	// getConn();
-	// Page page = new Page();
-	// page.setPageNumber(2);
-	// page.setPageSize(5);
-	// System.out.println(query(page));
-	// }
-	/**
-	 * 查询数据库，返回User集
-	 * 
-	 * @param page
-	 * @return
-	 */
-//	public List<User> query(Page page) {
-//		List<User> list = new ArrayList<>();
-//		String sql = "select * from user limit ?,?";
-//		PreparedStatement ps;
-//		try {
-//			ps = con.prepareStatement(sql);
-//			ps.setLong(1, page.getPageSize() * page.getPageNumber());
-//			ps.setInt(2, page.getPageSize());
-//			ResultSet rs = (ResultSet) ps.executeQuery();
-//			while (rs.next()) {
-//				User user = new User();
-//				user.setAge((int) rs.getObject("age"));
-//				user.setName((String) rs.getObject("name"));
-//				list.add(user);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return list;
-//	}
 
 	/**
 	 * 查询数据库，将结果封装为list集
@@ -124,31 +90,6 @@ public class UserDao {
 	 * @param page
 	 * @return
 	 */
-//	public List<Map<String, Object>> queryForList(Page page) {
-//		List<Map<String, Object>> list = new ArrayList<>();
-//		String sql = "select * from user limit ?,?";
-//		try {
-//			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setLong(1, page.getPageSize() * page.getPageNumber());
-//			ps.setInt(2, page.getPageSize());
-//			ResultSet rs = (ResultSet) ps.executeQuery();
-//			while (rs.next()) {
-//				ResultSetMetaData resultSetMetaData = rs.getMetaData();
-//				int count = resultSetMetaData.getColumnCount(); // 获取列数
-//				Map<String, Object> map = new HashMap<String, Object>();
-//				for (int i = 0; i < count; i++) {
-//					//将查询结果的列名作为map的键(key)，列的值作为map的值(value)
-//					map.put(resultSetMetaData.getColumnName(i + 1), rs
-//							.getObject(resultSetMetaData.getColumnName(i + 1)));
-//				}
-//				list.add(map);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return list;
-//	}
-
 	public List<Map<String, Object>> queryForList(PageObject page) {
 		List<Map<String, Object>> list = new ArrayList<>();
 		String sql = "select * from user limit ?,?";

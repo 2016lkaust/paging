@@ -1,13 +1,3 @@
-# paging分页简单实现
-
-# 数据库表
-[user.sql](WebContent/sql/user.sql)
-
-# index.jsp
-需要四个容器，分别用于显示ajax请求后台获取的数据（show）、选择每页显示的个数（class="perpage"）、显示数据总数（id=total_num）、页码（id="pageCtr1"）
-
-# index.js
-```js
 var queryList = "UserSlt";
 refreshOrderTable();
 // 每页显示多少条数
@@ -62,6 +52,3 @@ function showData(data) {
 	}
 	return html;
 }
-```
-**注**
-以上js文件只需修改showData，如果想修改显示样式，用ul等其他标签显示的话，jsp文件中的"show"标签要修改为相应的标签。
