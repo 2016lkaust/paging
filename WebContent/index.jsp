@@ -28,8 +28,9 @@
 
 <body>
 	<table id="show"></table>
-	<!--追加翻页代码-->
+	<!--翻页部分-->
 	<div class="pagination-list">
+		<!-- 每页显示个数 -->
 		<div class="pagination-count pull-left">
 			<span>每页</span> <select class="perpage"
 				onchange="refreshOrderTable()">
@@ -39,45 +40,37 @@
 				<option>20</option>
 				<option>50</option>
 				<option>100</option>
-			</select> <span>共有</span> <span id="total_num"></span> <span>条数据</span>
+			</select> 
+			<!-- 显示数据总数 -->
+			<span>共有</span> <span id="total_num"></span> <span>条数据</span>
 		</div>
+		<!-- 页码 -->
 		<div class="fanye pull-right" id="pageCtr1"></div>
-	</div>
+	</div><!-- 翻页结束 -->
 	<script>
-		var pageSize = 10;
-		var pageNum = 0;
-		var totalNum = 0;
-		var queryList = "UserSlt2";
+		
+		var queryList = "UserSlt";
+		//方法在nextPage.js文件中实现
 		refreshOrderTable();
-
-		// 每页显示多少条数
-		function refreshOrderTable() {
-			var perpage = $('.perpage').val();
-			refreshTablePage("1", perpage);
-		}
-		// 翻页刷新
-		function refreshForPageChange() {
-			var perpage = $('.perpage').val();
-			refreshTablePage("0", perpage);
-			console.log(perpage);
-		}
-
 		/*
 		 * 用服务器刷新列表页面 1刷新页码， 0翻页不刷新页码
 		 */
 		function refreshTablePage(refreshPage, pageSize) {
-			var total_num = 30;// total_num暂时写死 ，后期需要从后台获取
 			$.ajax({
 				url : queryList,
-				method:"post",
-				dataType:"json",
+				method : "post",
+				dataType : "json",
 				data : {
-					"page" : curPage,
-					"rows" : pageSize
+					"page" : curPage,//当前页面
+					"rows" : pageSize//页面大小
 				},
 				success : function(data) {
-					console.log(data);
+					var total_num = 30;// total_num暂时写死 ，后期需要从后台获取
+					
+					/* 在id为show的组件中显示数据，先将组件置空，然后将生成的html添加到组件中显示 */
 					$("#show").html("").append(showData(data));
+					
+					/* 直接套用，无需修改 */
 					if (refreshPage == "1") {
 						initPageNum(total_num, pageSize);
 						$('#total_num').text(total_num);
@@ -86,6 +79,7 @@
 				}
 			});
 		}
+		/* 用于数据显示，将数据拼接为html */
 		function showData(data) {
 			var html = "";
 			for ( var i = 0; i < data.length; i++) {

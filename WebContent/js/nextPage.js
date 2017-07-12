@@ -6,7 +6,16 @@ var widthTotal=400;
 var widthBtn=45;
 
 //引用翻页js，需要实现函数 refreshForPageChange();，查询服务器数据需要传输curPage， 页数初始化或者改变时调用initPageNum， 不能在refreshForPageChange中调用initPageNum
-
+//每页显示多少条数
+function refreshOrderTable() {
+	var perpage = $('.perpage').val();
+	refreshTablePage("1", perpage);
+}
+// 翻页刷新
+function refreshForPageChange() {
+	var perpage = $('.perpage').val();
+	refreshTablePage("0", perpage);
+}
 function initPageNum(totalNum, pageSize)
 {
 	pageCount =1;
