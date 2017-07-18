@@ -65,3 +65,6 @@ function showData(data) {
 ```
 **注**
 以上js文件只需修改showData，如果想修改显示样式，用ul等其他标签显示的话，jsp文件中的"show"标签要修改为相应的标签。
+
+- 待测试
+试试在Page bean中，无参构造器直接设置pageSize和pageNumber为servlet中设置的值
