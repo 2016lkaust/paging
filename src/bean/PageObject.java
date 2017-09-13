@@ -41,7 +41,19 @@ public class PageObject {
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
-	
+	public PageObject() {
+		this.page = 1;
+		this.pageSize = 10;
+	}
+
+	public PageObject(String page, String pageSize) {
+		if (page == null || "".equals(page))
+			page = "1";
+		if (pageSize == null || "".equals(pageSize))
+			pageSize = "10";
+		this.pageSize = Integer.parseInt(pageSize);//页面大小
+		this.page = (Integer.parseInt(page)-1) * Integer.parseInt(pageSize);//偏移量=（当前页面-1）*页面大小
+	}
 	
 
 }
