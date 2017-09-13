@@ -52,17 +52,8 @@ public class UserSlt extends HttpServlet {
 		//获取参数
 		String page = request.getParameter("page");
 		String pageSize = request.getParameter("rows");
-		//对参数为空的情况进行处理
-		if (page == null || "".equals(page))
-			page = "1";
-		if (pageSize == null || "".equals(pageSize))
-			pageSize = "10";
-		int page1 = Integer.parseInt(page);
-		int pageSize1 = Integer.parseInt(pageSize);
-		PageObject pageObj = new PageObject();
-		//设置偏移量和每页显示个数
-		pageObj.setPage((page1-1)*pageSize1);
-		pageObj.setPageSize(pageSize1);
+		
+		PageObject pageObj = new PageObject(page,pageSize);
 		
 		List<Map<String, Object>>list=userService.queryUsers(pageObj);
 		Gson gson=new Gson();
